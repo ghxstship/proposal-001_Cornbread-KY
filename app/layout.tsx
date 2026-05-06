@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
-import { Zilla_Slab, Libre_Caslon_Text, Rye, JetBrains_Mono, Alfa_Slab_One, Bebas_Neue } from "next/font/google";
+import { Alfa_Slab_One, Rye, Zilla_Slab, Libre_Caslon_Text, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-// Display — substitute for "Cowboy" (western/display)
-const rye = Rye({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-western",
-  display: "swap",
-});
-
-// Primary headline — substitute for "Kopius Extra Bold" (heavy slab)
+// Display heavy slab — primary headlines
 const alfa = Alfa_Slab_One({
-  subsets: ["latin"],
   weight: "400",
+  subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
 
-// Secondary headline — substitute for "Kopius Bold Italic" (slab italic)
+// Western — Cornbread wordmark, hero title
+const rye = Rye({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-western",
+  display: "swap",
+});
+
+// Headline italic — secondary slab for subheads + pitch lines
 const zilla = Zilla_Slab({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -27,20 +27,12 @@ const zilla = Zilla_Slab({
   display: "swap",
 });
 
-// Body — substitute for "Ranch Water" (readable serif)
+// Body — readable serif
 const caslon = Libre_Caslon_Text({
   subsets: ["latin"],
   weight: ["400", "700"],
   style: ["normal", "italic"],
   variable: "--font-body",
-  display: "swap",
-});
-
-// Brand wordmark — AGV Miami lockup, matches the canonical proposal treatment
-const bebas = Bebas_Neue({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-brand",
   display: "swap",
 });
 
@@ -52,34 +44,35 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cornbread Hemp × Abbey Road on the River 2026 / Activation Proposal",
+  title: "Cornbread Hemp × AGV Miami — Abbey Road on the River 2026 Activation Deployment Program",
   description:
-    "Modular activation deployment proposal for the Cornbread Hemp activation at Abbey Road on the River — May 21-25, 2026, Jeffersonville, IN. Produced by AGV Miami.",
-  keywords: [
-    "cornbread hemp",
-    "abbey road on the river",
-    "jeffersonville indiana",
-    "event activation",
-    "agv miami",
-    "agora graphics",
-  ],
-  authors: [{ name: "AGV Miami, LLC" }],
+    "Modular activation deployment proposal for the Cornbread Hemp activation. Per-activation, per-month, one-time upgrades, optional add-ons. Anchor engagement at Abbey Road on the River — May 21–25, 2026, Jeffersonville, IN. Prepared by AGV Miami for Cornbread Hemp.",
+  keywords:
+    "Cornbread Hemp, AGV Miami, Abbey Road on the River, RiverStage, Jeffersonville, brand activation, deployment, fabrication, asset management, hemp",
   openGraph: {
-    title: "Cornbread Hemp × Abbey Road on the River 2026",
+    title: "Cornbread Hemp × AGV Miami — Abbey Road on the River 2026",
     description:
-      "Modular activation deployment — May 21-25, 2026, Jeffersonville, IN. By AGV Miami.",
+      "Modular activation deployment program for the 2026 Cornbread calendar.",
     type: "website",
+  },
+  robots: {
+    index: false,
+    follow: false,
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${rye.variable} ${alfa.variable} ${zilla.variable} ${caslon.variable} ${bebas.variable} ${mono.variable}`}
+      className={`${alfa.variable} ${rye.variable} ${zilla.variable} ${caslon.variable} ${mono.variable}`}
     >
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

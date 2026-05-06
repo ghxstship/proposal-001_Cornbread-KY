@@ -1,0 +1,1221 @@
+/* Cornbread Hemp × AGV Miami — Cornbread brand kit application
+   Primary: Cornbread Orange #C5883F · Cedar #3A2A1B · Cannabis Green #3D441D · Buttermilk Paper #FAF5E8
+   Brand language: heavy slab serifs, western-display flourishes, agricultural cedar-on-cream surfaces,
+   orange as primary accent and burnt-orange/cannabis-green as supporting tones.
+   Scoped to .cbh-doc so it does not leak into other Next routes. */
+
+.cbh-doc {
+  /* Cornbread brand palette */
+  --cbh-orange: #c5883f;
+  --cbh-orange-dark: #8e5c24;
+  --cbh-orange-bright: #e09f4a;
+  --cbh-cedar: #3a2a1b;
+  --cbh-cedar-deep: #1f1611;
+  --cbh-cannabis: #3d441d;
+  --cbh-foil: #b89559;
+  --cbh-paper: #faf5e8;
+  --cbh-buttermilk: #f5efdf;
+  --cbh-mist: #fcf8f1;
+  --cbh-ink: #1f1611;
+  --cbh-line: rgba(58, 42, 27, 0.14);
+  --cbh-line-strong: rgba(58, 42, 27, 0.5);
+  --cbh-muted: #6b5a4a;
+
+  background: var(--cbh-paper);
+  color: var(--cbh-ink);
+  font-family: var(--font-body, "Libre Caslon Text", Georgia, serif);
+  min-height: 100vh;
+}
+
+.cbh-doc h1,
+.cbh-doc h2,
+.cbh-doc h3,
+.cbh-doc .cbh-display {
+  font-family: var(--font-display, "Alfa Slab One", "Roboto Slab", serif);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}
+
+.cbh-doc .cbh-western {
+  font-family: var(--font-western, "Rye", "Alfa Slab One", serif);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+}
+
+.cbh-doc .cbh-mono {
+  font-family: var(--font-mono, "JetBrains Mono", "Share Tech Mono", monospace);
+  font-feature-settings: "tnum";
+}
+
+.cbh-doc .cbh-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--cbh-orange-dark);
+}
+
+/* Diagonal Cornbread accent — orange→cedar gradient bar */
+.cbh-flame {
+  display: inline-block;
+  width: 56px;
+  height: 8px;
+  background: linear-gradient(90deg, var(--cbh-orange) 0%, var(--cbh-orange-bright) 55%, var(--cbh-foil) 100%);
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+}
+
+/* Sticky nav — cedar bar with cream type */
+.cbh-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--cbh-cedar-deep);
+  border-bottom: 3px solid var(--cbh-orange);
+  color: var(--cbh-paper);
+}
+
+.cbh-nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cbh-nav-brand {
+  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--cbh-paper);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.cbh-nav-brand .cbh-x {
+  color: var(--cbh-orange);
+  font-style: italic;
+}
+.cbh-nav-brand .cbh-wordmark {
+  color: var(--cbh-orange-bright);
+}
+
+.cbh-nav-links {
+  display: flex;
+  gap: 18px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(250, 245, 232, 0.62);
+  margin-left: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.cbh-nav-links a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.cbh-nav-links a:hover,
+.cbh-nav-links a.active {
+  color: var(--cbh-orange-bright);
+  border-bottom-color: var(--cbh-orange);
+}
+
+/* Hero — cedar canvas, western title, orange flame accent */
+.cbh-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 24px 88px;
+  background: var(--cbh-cedar-deep);
+  color: var(--cbh-paper);
+  border-bottom: 6px solid var(--cbh-orange);
+}
+
+.cbh-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 360px at 100% 0%, rgba(197, 136, 63, 0.18), transparent 55%),
+    linear-gradient(135deg, transparent 60%, rgba(58, 42, 27, 0.85) 60%, var(--cbh-cedar) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cbh-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--cbh-orange) 0 12px,
+    var(--cbh-foil) 12px 24px,
+    var(--cbh-cedar-deep) 24px 36px
+  );
+  z-index: 2;
+}
+
+.cbh-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.cbh-hero h1 {
+  font-family: var(--font-western, "Rye", "Alfa Slab One", serif);
+  font-size: clamp(48px, 10vw, 144px);
+  line-height: 0.92;
+  margin: 20px 0 0;
+  color: var(--cbh-paper);
+  letter-spacing: 0.005em;
+}
+
+.cbh-hero h1 .cbh-on {
+  display: block;
+  color: var(--cbh-orange);
+  text-shadow:
+    5px 5px 0 var(--cbh-cedar-deep),
+    6px 6px 0 var(--cbh-foil);
+}
+
+.cbh-hero h1 .cbh-line2 {
+  display: block;
+  font-size: 0.42em;
+  color: var(--cbh-orange-bright);
+  letter-spacing: 0.05em;
+  margin-top: 14px;
+  font-family: var(--font-display, "Alfa Slab One", serif);
+}
+
+.cbh-hero .cbh-sub {
+  color: rgba(250, 245, 232, 0.82);
+  border-left: 3px solid var(--cbh-orange);
+  padding-left: 16px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-style: italic;
+  font-family: var(--font-head, "Zilla Slab", Georgia, serif);
+}
+
+.cbh-hero-meta {
+  margin-top: 40px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) {
+  .cbh-hero-meta {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cbh-hero-meta dt {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--cbh-orange-bright);
+}
+
+.cbh-hero-meta dd {
+  margin: 6px 0 0;
+  font-family: var(--font-mono, monospace);
+  font-size: 14px;
+  color: var(--cbh-paper);
+}
+
+.cbh-hero .cbh-eyebrow {
+  color: var(--cbh-orange-bright);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cbh-confidential {
+  margin-top: 36px;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(250, 245, 232, 0.55);
+  border-top: 1px solid rgba(250, 245, 232, 0.15);
+  padding-top: 16px;
+}
+
+/* Section frame */
+.cbh-section {
+  max-width: 1180px;
+  margin: 64px auto 0;
+  padding: 0 24px;
+  scroll-margin-top: 80px;
+}
+.cbh-doc section[id] {
+  scroll-margin-top: 80px;
+}
+
+.cbh-section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.cbh-section-eyebrow span:first-child {
+  width: 24px;
+  height: 6px;
+  background: linear-gradient(90deg, var(--cbh-orange) 0%, var(--cbh-orange-bright) 60%, var(--cbh-foil) 100%);
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+}
+.cbh-section-eyebrow span:last-child {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--cbh-orange-dark);
+}
+
+.cbh-h2 {
+  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-size: clamp(34px, 5vw, 60px);
+  line-height: 0.96;
+  margin: 0 0 8px;
+  color: var(--cbh-cedar-deep);
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}
+
+.cbh-h2-accent {
+  color: var(--cbh-orange);
+}
+
+.cbh-sub {
+  font-size: 16px;
+  color: var(--cbh-muted);
+  max-width: 720px;
+  line-height: 1.6;
+  font-family: var(--font-head, "Zilla Slab", Georgia, serif);
+  font-style: italic;
+}
+
+/* Cards / surfaces */
+.cbh-card {
+  background: var(--cbh-mist);
+  border: 1px solid var(--cbh-line);
+  border-radius: 4px;
+  padding: 24px;
+  position: relative;
+}
+
+.cbh-card-accent {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--cbh-orange);
+}
+
+.cbh-grid-2 {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+.cbh-grid-3 {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+.cbh-grid-4 {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .cbh-grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cbh-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cbh-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .cbh-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Detail rows inside overview cards */
+.cbh-detail {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px dashed var(--cbh-line);
+  padding: 6px 0;
+  font-size: 13px;
+}
+.cbh-detail dt {
+  color: var(--cbh-muted);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.cbh-detail dd {
+  margin: 0;
+  font-family: var(--font-mono, monospace);
+  text-align: right;
+  font-size: 12.5px;
+}
+
+/* Pricing groups — cards mirroring Heat retainer-card pattern */
+.cbh-pricing-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 880px) {
+  .cbh-pricing-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cbh-pricing-card {
+  background: var(--cbh-mist);
+  border: 1px solid var(--cbh-line);
+  border-radius: 4px;
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.cbh-pricing-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--cbh-orange);
+}
+.cbh-pricing-card[data-group="upgrades"]::before {
+  background: var(--cbh-cannabis);
+}
+.cbh-pricing-card[data-group="addOns"]::before {
+  background: var(--cbh-foil);
+}
+.cbh-pricing-card[data-group="perMonth"]::before {
+  background: var(--cbh-cedar);
+}
+
+.cbh-pricing-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid var(--cbh-line);
+  padding-bottom: 14px;
+}
+.cbh-pricing-num {
+  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-size: 32px;
+  color: var(--cbh-orange);
+  line-height: 1;
+}
+.cbh-pricing-title {
+  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-size: 22px;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: var(--cbh-cedar-deep);
+}
+.cbh-pricing-pitch {
+  font-size: 12px;
+  color: var(--cbh-orange-dark);
+  letter-spacing: 0.04em;
+  font-style: italic;
+  font-weight: 700;
+  margin-top: 4px;
+  font-family: var(--font-head, "Zilla Slab", Georgia, serif);
+}
+.cbh-pricing-fitfor {
+  margin: 14px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--cbh-muted);
+}
+
+.cbh-pricing-lines {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  gap: 10px;
+}
+.cbh-pricing-line {
+  display: grid;
+  grid-template-columns: 3px 1fr auto;
+  gap: 14px;
+  align-items: stretch;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--cbh-line);
+}
+.cbh-pricing-line:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.cbh-pricing-line > .cbh-rule {
+  background: var(--cbh-orange);
+  display: block;
+  width: 3px;
+  align-self: stretch;
+}
+.cbh-pricing-card[data-group="upgrades"] .cbh-pricing-line > .cbh-rule {
+  background: var(--cbh-cannabis);
+}
+.cbh-pricing-card[data-group="addOns"] .cbh-pricing-line > .cbh-rule {
+  background: var(--cbh-foil);
+}
+.cbh-pricing-card[data-group="perMonth"] .cbh-pricing-line > .cbh-rule {
+  background: var(--cbh-cedar);
+}
+.cbh-pricing-line .cbh-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cbh-cedar-deep);
+}
+.cbh-pricing-line .cbh-desc {
+  font-size: 12.5px;
+  color: var(--cbh-muted);
+  margin-top: 2px;
+  line-height: 1.55;
+  max-width: 56ch;
+}
+.cbh-pricing-line-amount {
+  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-size: 22px;
+  color: var(--cbh-cedar-deep);
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  align-self: start;
+}
+.cbh-pricing-line-basis {
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--cbh-muted);
+  text-align: right;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Investment table */
+.cbh-investment {
+  background: var(--cbh-mist);
+  border: 1px solid var(--cbh-line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.cbh-investment table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cbh-investment th,
+.cbh-investment td {
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--cbh-line);
+}
+.cbh-investment thead th {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--cbh-muted);
+  background: rgba(58, 42, 27, 0.04);
+}
+.cbh-investment tbody td.right,
+.cbh-investment thead th.right {
+  text-align: right;
+  font-family: var(--font-mono, monospace);
+  white-space: nowrap;
+}
+.cbh-investment .cbh-row-section td {
+  background: var(--cbh-cedar-deep);
+  color: var(--cbh-orange-bright);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 800;
+  border-bottom: 0;
+}
+.cbh-investment .cbh-row-section td.right {
+  color: var(--cbh-paper);
+}
+.cbh-investment tfoot td {
+  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-size: 24px;
+  background: var(--cbh-orange);
+  color: var(--cbh-paper);
+  letter-spacing: -0.005em;
+  position: relative;
+}
+.cbh-investment tfoot td:first-child {
+  text-transform: uppercase;
+}
+.cbh-investment tfoot td.right {
+  color: var(--cbh-cedar-deep);
+  text-shadow: 3px 3px 0 var(--cbh-foil);
+}
+
+/* Site / calendar cards */
+.cbh-site-card {
+  background: var(--cbh-mist);
+  border: 1px solid var(--cbh-line);
+  border-radius: 4px;
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cbh-site-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--cbh-orange);
+}
+.cbh-site-card[data-status="Quoting"]::before {
+  background: var(--cbh-orange);
+}
+.cbh-site-card[data-status="Held"]::before {
+  background: var(--cbh-foil);
+}
+.cbh-site-card[data-status="Confirmed"]::before {
+  background: var(--cbh-cannabis);
+}
+.cbh-site-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--cbh-orange-dark);
+}
+.cbh-site-name {
+  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-size: 22px;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: var(--cbh-cedar-deep);
+  margin-top: 2px;
+}
+.cbh-site-meta {
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  color: var(--cbh-muted);
+  letter-spacing: 0.04em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  border-top: 1px dashed var(--cbh-line);
+  padding-top: 10px;
+}
+.cbh-site-body {
+  font-size: 13px;
+  color: var(--cbh-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+.cbh-site-foot {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed var(--cbh-line);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.cbh-site-amount {
+  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-size: 22px;
+  color: var(--cbh-orange-dark);
+  letter-spacing: -0.005em;
+}
+.cbh-site-status {
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--cbh-cedar-deep);
+  color: var(--cbh-orange-bright);
+}
+.cbh-site-card[data-status="Held"] .cbh-site-status {
+  background: var(--cbh-foil);
+  color: var(--cbh-cedar-deep);
+}
+.cbh-site-card[data-status="Confirmed"] .cbh-site-status {
+  background: var(--cbh-cannabis);
+  color: var(--cbh-paper);
+}
+
+/* Phase strip — left rail in Cornbread orange, gate cue in foil */
+.cbh-phase {
+  border: 1px solid var(--cbh-line);
+  background: var(--cbh-mist);
+  padding: 18px 20px 18px 28px;
+  margin-bottom: 12px;
+  position: relative;
+  border-radius: 4px;
+}
+.cbh-phase::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--cbh-orange);
+}
+
+.cbh-phase-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.cbh-phase-num {
+  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-size: 30px;
+  color: var(--cbh-orange);
+  line-height: 1;
+}
+.cbh-phase-name {
+  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-size: 22px;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: var(--cbh-cedar-deep);
+}
+.cbh-phase-deadline {
+  margin-left: auto;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: var(--cbh-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.cbh-phase-intent {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--cbh-muted);
+  line-height: 1.55;
+  max-width: 760px;
+}
+.cbh-phase-grid {
+  margin-top: 14px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .cbh-phase-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.cbh-phase-grid h4 {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--cbh-cedar-deep);
+  margin: 0 0 6px;
+}
+.cbh-phase-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--cbh-muted);
+  line-height: 1.55;
+}
+.cbh-phase-grid ul li {
+  border-left: 1px dashed var(--cbh-line);
+  padding-left: 10px;
+  margin-bottom: 6px;
+}
+.cbh-phase-gate {
+  margin-top: 12px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: var(--cbh-orange-dark);
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+/* Engagement bar (Deposit / Balance) */
+.cbh-engagement {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .cbh-engagement {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.cbh-engagement .cbh-card {
+  border-top: 6px solid var(--cbh-orange);
+  background: var(--cbh-cedar-deep);
+  color: var(--cbh-paper);
+}
+.cbh-engagement .cbh-card .cbh-eyebrow {
+  color: var(--cbh-orange-bright);
+}
+.cbh-engagement .cbh-card.balance {
+  background: var(--cbh-mist);
+  color: var(--cbh-ink);
+  border-top-color: var(--cbh-cedar-deep);
+}
+.cbh-engagement .cbh-card.balance .cbh-eyebrow {
+  color: var(--cbh-cedar-deep);
+}
+.cbh-engagement-pct {
+  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-size: 64px;
+  line-height: 1;
+  color: inherit;
+  letter-spacing: -0.02em;
+  display: inline-block;
+}
+.cbh-engagement .cbh-card .cbh-engagement-pct {
+  color: var(--cbh-orange-bright);
+  text-shadow: 4px 4px 0 var(--cbh-foil);
+}
+.cbh-engagement .cbh-card.balance .cbh-engagement-pct {
+  color: var(--cbh-orange);
+}
+
+/* Buttons */
+.cbh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 0;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 800;
+  text-decoration: none;
+  border: 2px solid var(--cbh-cedar-deep);
+  background: var(--cbh-cedar-deep);
+  color: var(--cbh-paper);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  font-family: var(--font-mono, monospace);
+}
+.cbh-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--cbh-orange);
+}
+.cbh-btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.cbh-btn.secondary {
+  background: transparent;
+  color: var(--cbh-cedar-deep);
+}
+.cbh-btn.secondary:hover {
+  box-shadow: 4px 4px 0 var(--cbh-cedar-deep);
+}
+.cbh-btn.danger {
+  background: var(--cbh-orange);
+  border-color: var(--cbh-orange);
+  color: var(--cbh-cedar-deep);
+}
+.cbh-btn.danger:hover {
+  box-shadow: 4px 4px 0 var(--cbh-foil);
+}
+
+.cbh-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* Pill */
+.cbh-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  background: var(--cbh-cedar-deep);
+  color: var(--cbh-orange-bright);
+  font-weight: 800;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+}
+
+/* Signature pad */
+.cbh-sig-card {
+  background: var(--cbh-mist);
+  border: 1px solid var(--cbh-line);
+  border-radius: 4px;
+  padding: 24px;
+}
+.cbh-sig-tabs {
+  display: inline-flex;
+  border: 1px solid var(--cbh-line-strong);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.cbh-sig-tabs button {
+  background: transparent;
+  border: 0;
+  padding: 8px 18px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--cbh-muted);
+  cursor: pointer;
+  font-family: var(--font-mono, monospace);
+}
+.cbh-sig-tabs button[data-active="true"] {
+  background: var(--cbh-cedar-deep);
+  color: var(--cbh-paper);
+}
+.cbh-sig-canvas {
+  display: block;
+  width: 100%;
+  max-width: 540px;
+  height: 160px;
+  border: 1px dashed var(--cbh-line-strong);
+  background: var(--cbh-paper);
+  border-radius: 4px;
+}
+.cbh-sig-typed {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-style: italic;
+  font-size: 36px;
+  color: var(--cbh-cedar-deep);
+  border-bottom: 1px solid var(--cbh-line-strong);
+  padding: 16px 8px;
+  min-height: 64px;
+}
+.cbh-sig-fields {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+  margin-top: 16px;
+}
+@media (min-width: 768px) {
+  .cbh-sig-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.cbh-input {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--cbh-line-strong);
+  background: #fff;
+  font: inherit;
+  border-radius: 2px;
+}
+
+/* Change-order cards */
+.cbh-co-card {
+  border: 1px dashed var(--cbh-line-strong);
+  padding: 18px;
+  border-radius: 4px;
+  background: rgba(252, 248, 241, 0.7);
+}
+.cbh-co-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.cbh-co-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cbh-cedar-deep);
+}
+.cbh-co-body {
+  font-size: 12.5px;
+  color: var(--cbh-muted);
+  margin-top: 8px;
+  line-height: 1.55;
+}
+.cbh-co-price {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  color: var(--cbh-orange-dark);
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+/* Footer */
+.cbh-footer {
+  margin-top: 96px;
+  padding: 48px 24px 36px;
+  background: var(--cbh-cedar-deep);
+  color: var(--cbh-paper);
+  position: relative;
+  border-top: 6px solid var(--cbh-orange);
+}
+.cbh-footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -6px;
+  height: 6px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--cbh-orange) 0 12px,
+    var(--cbh-foil) 12px 24px,
+    var(--cbh-cedar-deep) 24px 36px
+  );
+}
+.cbh-footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .cbh-footer-inner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.cbh-footer h4 {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--cbh-orange-bright);
+  margin: 0 0 8px;
+}
+
+/* Scope taxonomy details */
+.cbh-doc details.cbh-card summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.cbh-doc details.cbh-card summary::-webkit-details-marker {
+  display: none;
+}
+.cbh-tax-num {
+  font-family: var(--font-mono, monospace);
+  color: var(--cbh-orange-dark);
+  font-size: 18px;
+  font-weight: 700;
+}
+.cbh-tax-name {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  color: var(--cbh-cedar-deep);
+}
+.cbh-tax-sub {
+  display: block;
+  font-size: 11px;
+  color: var(--cbh-muted);
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-mono, monospace);
+}
+.cbh-tax-narrative {
+  font-size: 13px;
+  color: var(--cbh-muted);
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* Exclusions list */
+.cbh-exclusions {
+  margin-top: 20px;
+  padding-left: 0;
+  list-style: none;
+}
+.cbh-exclusions li {
+  font-size: 13.5px;
+  color: var(--cbh-muted);
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--cbh-line);
+  line-height: 1.6;
+}
+.cbh-exclusions strong {
+  color: var(--cbh-cedar-deep);
+  margin-right: 4px;
+}
+
+/* Terms cards */
+.cbh-term-card .cbh-term-section {
+  background: var(--cbh-cedar-deep);
+  color: var(--cbh-paper);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-family: var(--font-mono, monospace);
+}
+.cbh-term-card .cbh-term-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cbh-cedar-deep);
+}
+.cbh-term-card .cbh-term-body {
+  font-size: 12.5px;
+  color: var(--cbh-muted);
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* Subtotal callout in applied composition */
+.cbh-subtotal-row {
+  background: var(--cbh-buttermilk);
+  padding: 14px 20px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cbh-cedar-deep);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px dashed var(--cbh-line);
+}
+.cbh-subtotal-row strong {
+  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-size: 18px;
+  color: var(--cbh-orange-dark);
+  letter-spacing: -0.005em;
+}
+
+/* Responsive — mobile + tablet */
+@media (max-width: 639px) {
+  .cbh-section {
+    padding: 0 16px;
+  }
+  .cbh-nav-inner {
+    padding: 10px 16px;
+  }
+  .cbh-nav-brand {
+    font-size: 14px;
+  }
+  .cbh-nav-links {
+    font-size: 10px;
+    gap: 14px;
+    letter-spacing: 0.18em;
+  }
+  .cbh-hero {
+    padding: 56px 16px 64px;
+  }
+  .cbh-hero h1 .cbh-on {
+    text-shadow:
+      4px 4px 0 var(--cbh-cedar-deep),
+      5px 5px 0 var(--cbh-foil);
+  }
+  .cbh-pricing-line {
+    grid-template-columns: 3px 1fr;
+  }
+  .cbh-pricing-line-amount {
+    grid-column: 2;
+    font-size: 18px;
+    margin-top: 6px;
+  }
+  .cbh-pricing-line-basis {
+    text-align: left;
+  }
+  .cbh-investment th,
+  .cbh-investment td {
+    padding: 10px 12px;
+  }
+  .cbh-investment .cbh-row-section td {
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    padding: 8px 12px;
+  }
+  .cbh-investment tfoot td {
+    font-size: 16px;
+    padding: 12px 12px;
+  }
+  .cbh-phase {
+    padding: 16px 16px 16px 22px;
+  }
+  .cbh-phase-head {
+    flex-wrap: wrap;
+    column-gap: 12px;
+  }
+  .cbh-phase-deadline {
+    margin-left: 0;
+    flex-basis: 100%;
+    margin-top: 4px;
+  }
+  .cbh-engagement-pct {
+    font-size: 52px;
+  }
+  .cbh-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cbh-cta-row .cbh-btn {
+    width: 100%;
+  }
+  .cbh-section-eyebrow span:last-child {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+  }
+}
+
+/* Print */
+@media print {
+  .cbh-doc {
+    background: #fff;
+    color: #000;
+  }
+  .cbh-nav,
+  .cbh-cta-row,
+  .cbh-sig-tabs {
+    display: none !important;
+  }
+  .cbh-section,
+  .cbh-hero-inner {
+    max-width: none;
+  }
+  .cbh-card,
+  .cbh-pricing-card,
+  .cbh-phase,
+  .cbh-investment,
+  .cbh-sig-card,
+  .cbh-site-card,
+  .cbh-co-card {
+    break-inside: avoid;
+  }
+}
