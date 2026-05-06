@@ -39,9 +39,33 @@ Annual production: $41,000 · plus storage at $1,500 / mo rolling between deploy
 
 - Next.js 16 · React 19 · TypeScript
 - Single-page interactive proposal at `/`
-- Cornbread brand kit applied via scoped `cornbread.css` (Cornbread Orange `#C5883F` · Cedar `#3A2A1B` · Cannabis `#3D441D`)
-- Heavy slab serifs + western display wordmarks · cedar-on-cream surfaces · orange flame accents
-- Sticky section nav with active-state highlighting · accordion taxonomy · canvas-draw signature pad · print-optimized layout
+- Cornbread brand kit (per `CB_BrandGuide-2025`) applied via scoped `cornbread.css`
+- Sticky section nav with active-state highlighting · accordion taxonomy · canvas-draw signature pad · round Ranch-Water buttons · print-optimized layout
+
+## Brand kit
+
+Colors (from `CB_BrandGuide-2025` page 18):
+
+| Token | Hex | PMS |
+| --- | --- | --- |
+| Cornbread Orange | `#C5883F` | 7563 C |
+| Dark Cedar | `#44382A` | 7554 C |
+| Cannabis | `#3D441D` | 5747 C |
+| Buttermilk | `#E1D6C3` | 7527 C |
+| Foil | `#DD9F48` | 7563 C |
+| Orange (dark variant) | `#945F26` | — |
+
+Fonts (from `CB_BrandGuide-2025` pages 12–17):
+
+| Role | Brand font | Free substitute (loaded) |
+| --- | --- | --- |
+| Primary headline | **Kopius Extra Bold** | Roboto Slab 800/900 |
+| Secondary headline / italic | **Kopius Bold Italic** | Roboto Slab Italic |
+| Body + buttons | **Ranch Water Regular & Italic** | Bitter |
+| Western detail | **Cowboy** | Rye |
+| Tabular figures | (no brand spec) | JetBrains Mono |
+
+**Production**: Kopius (Schick Toikka), Ranch Water (Sudtipos), and Cowboy are commercial faces and aren't on Google Fonts. Drop the AGV Miami Adobe Fonts kit URL into `app/layout.tsx` (commented placeholder is in place) and the brand names — listed first in every font-family stack in `cornbread.css` — resolve to the licensed faces automatically. Until then the page renders cleanly with the Google Font substitutes above.
 
 ## Local development
 

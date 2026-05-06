@@ -1,52 +1,73 @@
 /* Cornbread Hemp × AGV Miami — Cornbread brand kit application
-   Primary: Cornbread Orange #C5883F · Cedar #3A2A1B · Cannabis Green #3D441D · Buttermilk Paper #FAF5E8
-   Brand language: heavy slab serifs, western-display flourishes, agricultural cedar-on-cream surfaces,
-   orange as primary accent and burnt-orange/cannabis-green as supporting tones.
+   Brand fonts (per CB_BrandGuide-2025):
+     · Primary headline:    Kopius Extra Bold
+     · Secondary headline:  Kopius Bold Italic
+     · Body + buttons:      Ranch Water Regular & Italic
+     · Western detail:      Cowboy
+   Kopius and Ranch Water are commercial faces (Schick Toikka, Sudtipos);
+   load via Adobe Fonts kit in production. Free Google Fonts substitutes
+   are listed second in each font-family stack so the page renders cleanly
+   when the licensed faces aren't available.
+
+   Brand colors (per CB_BrandGuide-2025 page 18):
+     · Cornbread Orange  #C5883F · PMS 7563 C  (dark variant #945F26)
+     · Dark Cedar        #44382A · PMS 7554 C
+     · Cannabis          #3D441D · PMS 5747 C
+     · Buttermilk        #E1D6C3 · PMS 7527 C
+     · Foil              #DD9F48 · PMS 7563 C
    Scoped to .cbh-doc so it does not leak into other Next routes. */
 
 .cbh-doc {
-  /* Cornbread brand palette */
+  /* Cornbread brand palette — exact hex from CB_BrandGuide-2025 */
   --cbh-orange: #c5883f;
-  --cbh-orange-dark: #8e5c24;
+  --cbh-orange-dark: #945f26;
   --cbh-orange-bright: #e09f4a;
-  --cbh-cedar: #3a2a1b;
-  --cbh-cedar-deep: #1f1611;
+  --cbh-cedar: #44382a;
   --cbh-cannabis: #3d441d;
-  --cbh-foil: #b89559;
-  --cbh-paper: #faf5e8;
-  --cbh-buttermilk: #f5efdf;
-  --cbh-mist: #fcf8f1;
-  --cbh-ink: #1f1611;
-  --cbh-line: rgba(58, 42, 27, 0.14);
-  --cbh-line-strong: rgba(58, 42, 27, 0.5);
+  --cbh-foil: #dd9f48;
+  --cbh-buttermilk: #e1d6c3;
+  --cbh-mist: #faf5e8; /* logo color variant — near-cream */
+  --cbh-paper: #faf5e8; /* paper surface = mist tone */
+  --cbh-ink: #2a2018; /* readable on cream, just under cedar */
+  --cbh-line: rgba(68, 56, 42, 0.14);
+  --cbh-line-strong: rgba(68, 56, 42, 0.5);
   --cbh-muted: #6b5a4a;
 
   background: var(--cbh-paper);
   color: var(--cbh-ink);
-  font-family: var(--font-body, "Libre Caslon Text", Georgia, serif);
+  font-family: var(--font-body, "Ranch Water", "Bitter", "Libre Caslon Text", Georgia, serif);
   min-height: 100vh;
 }
 
+/* Primary headlines — Kopius Extra Bold (brand) → Roboto Slab → Alfa Slab One fallback */
 .cbh-doc h1,
 .cbh-doc h2,
 .cbh-doc h3,
 .cbh-doc .cbh-display {
-  font-family: var(--font-display, "Alfa Slab One", "Roboto Slab", serif);
-  font-weight: 400;
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
+  font-weight: 800;
   letter-spacing: -0.005em;
   text-transform: uppercase;
 }
 
+/* Secondary headlines / italics — Kopius Bold Italic (brand) → Zilla Slab Italic fallback */
+.cbh-doc .cbh-head-italic,
+.cbh-doc .cbh-sub {
+  font-family: var(--font-head, "Kopius", "Zilla Slab", "Roboto Slab", serif);
+}
+
+/* Western detail / hero title / button accents — Cowboy (brand) → Rye fallback */
 .cbh-doc .cbh-western {
-  font-family: var(--font-western, "Rye", "Alfa Slab One", serif);
+  font-family: var(--font-western, "Cowboy", "Rye", "Alfa Slab One", serif);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.005em;
 }
 
 .cbh-doc .cbh-mono {
-  font-family: var(--font-mono, "JetBrains Mono", "Share Tech Mono", monospace);
+  font-family: var(--font-mono, "Ranch Water", "Bitter", "JetBrains Mono", monospace);
   font-feature-settings: "tnum";
+  letter-spacing: 0.04em;
 }
 
 .cbh-doc .cbh-eyebrow {
@@ -71,7 +92,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--cbh-cedar-deep);
+  background: var(--cbh-cedar);
   border-bottom: 3px solid var(--cbh-orange);
   color: var(--cbh-paper);
 }
@@ -86,7 +107,7 @@
 }
 
 .cbh-nav-brand {
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
   font-size: 18px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -135,7 +156,7 @@
   position: relative;
   overflow: hidden;
   padding: 72px 24px 88px;
-  background: var(--cbh-cedar-deep);
+  background: var(--cbh-cedar);
   color: var(--cbh-paper);
   border-bottom: 6px solid var(--cbh-orange);
 }
@@ -162,7 +183,7 @@
     -45deg,
     var(--cbh-orange) 0 12px,
     var(--cbh-foil) 12px 24px,
-    var(--cbh-cedar-deep) 24px 36px
+    var(--cbh-cedar) 24px 36px
   );
   z-index: 2;
 }
@@ -175,7 +196,7 @@
 }
 
 .cbh-hero h1 {
-  font-family: var(--font-western, "Rye", "Alfa Slab One", serif);
+  font-family: var(--font-western, "Cowboy", "Rye", "Alfa Slab One", serif);
   font-size: clamp(48px, 10vw, 144px);
   line-height: 0.92;
   margin: 20px 0 0;
@@ -187,7 +208,7 @@
   display: block;
   color: var(--cbh-orange);
   text-shadow:
-    5px 5px 0 var(--cbh-cedar-deep),
+    5px 5px 0 var(--cbh-cedar),
     6px 6px 0 var(--cbh-foil);
 }
 
@@ -197,7 +218,7 @@
   color: var(--cbh-orange-bright);
   letter-spacing: 0.05em;
   margin-top: 14px;
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
 }
 
 .cbh-hero .cbh-sub {
@@ -207,7 +228,7 @@
   font-size: 18px;
   line-height: 1.5;
   font-style: italic;
-  font-family: var(--font-head, "Zilla Slab", Georgia, serif);
+  font-family: var(--font-head, "Kopius", "Zilla Slab", "Roboto Slab", serif);
 }
 
 .cbh-hero-meta {
@@ -286,11 +307,11 @@
 }
 
 .cbh-h2 {
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
   font-size: clamp(34px, 5vw, 60px);
   line-height: 0.96;
   margin: 0 0 8px;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
   letter-spacing: -0.005em;
   text-transform: uppercase;
 }
@@ -304,7 +325,7 @@
   color: var(--cbh-muted);
   max-width: 720px;
   line-height: 1.6;
-  font-family: var(--font-head, "Zilla Slab", Georgia, serif);
+  font-family: var(--font-head, "Kopius", "Zilla Slab", "Roboto Slab", serif);
   font-style: italic;
 }
 
@@ -425,17 +446,17 @@
   padding-bottom: 14px;
 }
 .cbh-pricing-num {
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
   font-size: 32px;
   color: var(--cbh-orange);
   line-height: 1;
 }
 .cbh-pricing-title {
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
   font-size: 22px;
   letter-spacing: 0.005em;
   text-transform: uppercase;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
 }
 .cbh-pricing-pitch {
   font-size: 12px;
@@ -444,7 +465,7 @@
   font-style: italic;
   font-weight: 700;
   margin-top: 4px;
-  font-family: var(--font-head, "Zilla Slab", Georgia, serif);
+  font-family: var(--font-head, "Kopius", "Zilla Slab", "Roboto Slab", serif);
 }
 .cbh-pricing-fitfor {
   margin: 14px 0 0;
@@ -490,7 +511,7 @@
 .cbh-pricing-line .cbh-name {
   font-size: 14px;
   font-weight: 700;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
 }
 .cbh-pricing-line .cbh-desc {
   font-size: 12.5px;
@@ -500,9 +521,9 @@
   max-width: 56ch;
 }
 .cbh-pricing-line-amount {
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
   font-size: 22px;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
   letter-spacing: -0.005em;
   white-space: nowrap;
   align-self: start;
@@ -550,7 +571,7 @@
   white-space: nowrap;
 }
 .cbh-investment .cbh-row-section td {
-  background: var(--cbh-cedar-deep);
+  background: var(--cbh-cedar);
   color: var(--cbh-orange-bright);
   font-size: 11px;
   letter-spacing: 0.28em;
@@ -562,7 +583,7 @@
   color: var(--cbh-paper);
 }
 .cbh-investment tfoot td {
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
   font-size: 24px;
   background: var(--cbh-orange);
   color: var(--cbh-paper);
@@ -573,7 +594,7 @@
   text-transform: uppercase;
 }
 .cbh-investment tfoot td.right {
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
   text-shadow: 3px 3px 0 var(--cbh-foil);
 }
 
@@ -615,11 +636,11 @@
   color: var(--cbh-orange-dark);
 }
 .cbh-site-name {
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
   font-size: 22px;
   letter-spacing: 0.005em;
   text-transform: uppercase;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
   margin-top: 2px;
 }
 .cbh-site-meta {
@@ -649,7 +670,7 @@
   gap: 12px;
 }
 .cbh-site-amount {
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
   font-size: 22px;
   color: var(--cbh-orange-dark);
   letter-spacing: -0.005em;
@@ -661,12 +682,12 @@
   font-weight: 800;
   padding: 4px 10px;
   border-radius: 999px;
-  background: var(--cbh-cedar-deep);
+  background: var(--cbh-cedar);
   color: var(--cbh-orange-bright);
 }
 .cbh-site-card[data-status="Held"] .cbh-site-status {
   background: var(--cbh-foil);
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
 }
 .cbh-site-card[data-status="Confirmed"] .cbh-site-status {
   background: var(--cbh-cannabis);
@@ -696,17 +717,17 @@
   gap: 16px;
 }
 .cbh-phase-num {
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
   font-size: 30px;
   color: var(--cbh-orange);
   line-height: 1;
 }
 .cbh-phase-name {
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
   font-size: 22px;
   letter-spacing: 0.005em;
   text-transform: uppercase;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
 }
 .cbh-phase-deadline {
   margin-left: auto;
@@ -739,7 +760,7 @@
   letter-spacing: 0.25em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
   margin: 0 0 6px;
 }
 .cbh-phase-grid ul {
@@ -777,7 +798,7 @@
 }
 .cbh-engagement .cbh-card {
   border-top: 6px solid var(--cbh-orange);
-  background: var(--cbh-cedar-deep);
+  background: var(--cbh-cedar);
   color: var(--cbh-paper);
 }
 .cbh-engagement .cbh-card .cbh-eyebrow {
@@ -786,13 +807,13 @@
 .cbh-engagement .cbh-card.balance {
   background: var(--cbh-mist);
   color: var(--cbh-ink);
-  border-top-color: var(--cbh-cedar-deep);
+  border-top-color: var(--cbh-cedar);
 }
 .cbh-engagement .cbh-card.balance .cbh-eyebrow {
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
 }
 .cbh-engagement-pct {
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
   font-size: 64px;
   line-height: 1;
   color: inherit;
@@ -807,28 +828,32 @@
   color: var(--cbh-orange);
 }
 
-/* Buttons */
+/* Buttons — round, Ranch Water all caps, opaque primary or 3pt-stroke secondary
+   per CB_BrandGuide-2025 page 27 */
 .cbh-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 28px;
-  border-radius: 0;
-  font-size: 11px;
-  letter-spacing: 0.3em;
+  padding: 16px 36px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-weight: 800;
+  font-weight: 700;
   text-decoration: none;
-  border: 2px solid var(--cbh-cedar-deep);
-  background: var(--cbh-cedar-deep);
+  border: 2px solid var(--cbh-cedar);
+  background: var(--cbh-cedar);
   color: var(--cbh-paper);
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
-  font-family: var(--font-mono, monospace);
+  transition: background 0.15s ease, color 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+  font-family: var(--font-body, "Ranch Water", "Bitter", Georgia, serif);
+  min-height: 44px;
 }
 .cbh-btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--cbh-orange);
+  background: var(--cbh-orange);
+  border-color: var(--cbh-orange);
+  color: var(--cbh-cedar);
+  transform: translateY(-1px);
 }
 .cbh-btn[disabled] {
   opacity: 0.45;
@@ -836,20 +861,26 @@
   transform: none;
   box-shadow: none;
 }
+/* Secondary: translucent fill, 3pt stroke per brand mandate */
 .cbh-btn.secondary {
   background: transparent;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
+  border-width: 3px;
 }
 .cbh-btn.secondary:hover {
-  box-shadow: 4px 4px 0 var(--cbh-cedar-deep);
+  background: rgba(68, 56, 42, 0.08);
+  color: var(--cbh-cedar);
 }
+/* Primary on dark surfaces — Cornbread Orange opaque */
 .cbh-btn.danger {
   background: var(--cbh-orange);
   border-color: var(--cbh-orange);
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
 }
 .cbh-btn.danger:hover {
-  box-shadow: 4px 4px 0 var(--cbh-foil);
+  background: var(--cbh-foil);
+  border-color: var(--cbh-foil);
+  color: var(--cbh-cedar);
 }
 
 .cbh-cta-row {
@@ -867,7 +898,7 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   padding: 5px 16px;
-  background: var(--cbh-cedar-deep);
+  background: var(--cbh-cedar);
   color: var(--cbh-orange-bright);
   font-weight: 800;
   clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
@@ -900,7 +931,7 @@
   font-family: var(--font-mono, monospace);
 }
 .cbh-sig-tabs button[data-active="true"] {
-  background: var(--cbh-cedar-deep);
+  background: var(--cbh-cedar);
   color: var(--cbh-paper);
 }
 .cbh-sig-canvas {
@@ -916,7 +947,7 @@
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-style: italic;
   font-size: 36px;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
   border-bottom: 1px solid var(--cbh-line-strong);
   padding: 16px 8px;
   min-height: 64px;
@@ -958,7 +989,7 @@
 .cbh-co-name {
   font-size: 14px;
   font-weight: 700;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
 }
 .cbh-co-body {
   font-size: 12.5px;
@@ -978,7 +1009,7 @@
 .cbh-footer {
   margin-top: 96px;
   padding: 48px 24px 36px;
-  background: var(--cbh-cedar-deep);
+  background: var(--cbh-cedar);
   color: var(--cbh-paper);
   position: relative;
   border-top: 6px solid var(--cbh-orange);
@@ -994,7 +1025,7 @@
     -45deg,
     var(--cbh-orange) 0 12px,
     var(--cbh-foil) 12px 24px,
-    var(--cbh-cedar-deep) 24px 36px
+    var(--cbh-cedar) 24px 36px
   );
 }
 .cbh-footer-inner {
@@ -1039,7 +1070,7 @@
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.01em;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
 }
 .cbh-tax-sub {
   display: block;
@@ -1071,13 +1102,13 @@
   line-height: 1.6;
 }
 .cbh-exclusions strong {
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
   margin-right: 4px;
 }
 
 /* Terms cards */
 .cbh-term-card .cbh-term-section {
-  background: var(--cbh-cedar-deep);
+  background: var(--cbh-cedar);
   color: var(--cbh-paper);
   padding: 2px 8px;
   border-radius: 999px;
@@ -1087,7 +1118,7 @@
 .cbh-term-card .cbh-term-title {
   font-size: 14px;
   font-weight: 700;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
 }
 .cbh-term-card .cbh-term-body {
   font-size: 12.5px;
@@ -1104,7 +1135,7 @@
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cbh-cedar-deep);
+  color: var(--cbh-cedar);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1112,7 +1143,7 @@
   border-top: 1px dashed var(--cbh-line);
 }
 .cbh-subtotal-row strong {
-  font-family: var(--font-display, "Alfa Slab One", serif);
+  font-family: var(--font-display, "Kopius", "Roboto Slab", "Alfa Slab One", serif);
   font-size: 18px;
   color: var(--cbh-orange-dark);
   letter-spacing: -0.005em;
@@ -1139,7 +1170,7 @@
   }
   .cbh-hero h1 .cbh-on {
     text-shadow:
-      4px 4px 0 var(--cbh-cedar-deep),
+      4px 4px 0 var(--cbh-cedar),
       5px 5px 0 var(--cbh-foil);
   }
   .cbh-pricing-line {

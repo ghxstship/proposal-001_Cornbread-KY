@@ -878,7 +878,7 @@ function Footer() {
       <div className="cbh-footer-inner">
         <div>
           <h4>Producer</h4>
-          <div style={{ fontSize: 18, fontFamily: "var(--font-display, 'Alfa Slab One', serif)", letterSpacing: "0.03em" }}>
+          <div style={{ fontSize: 18, fontFamily: "var(--font-display, 'Kopius', 'Roboto Slab', serif)", letterSpacing: "0.03em" }}>
             {CBH_DOC.producerLong}
           </div>
           <div style={{ fontSize: 12, opacity: 0.7, marginTop: 4 }}>{CBH_DOC.contactProducer}</div>
