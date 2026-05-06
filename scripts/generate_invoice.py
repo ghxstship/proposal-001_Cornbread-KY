@@ -86,7 +86,7 @@ def main():
     ws.cell(row=row, column=4, value="Version 2.1").font = f_meta
     row += 1
 
-    ws.cell(row=row, column=2, value="julian@agvmiami.com").font = f_meta
+    ws.cell(row=row, column=2, value="jclarkson@agvmiami.com").font = f_meta
     ws.cell(row=row, column=3, value="Brand Activations Manager").font = f_meta
     ws.cell(row=row, column=4, value="Issue Date: May 5, 2026").font = f_meta
     row += 1
@@ -130,13 +130,16 @@ def main():
         ws.row_dimensions[row].height = 24
         row += 1
 
-    def line_item(name, desc, amount, basis, height=44, starting_at=False):
+    def line_item(name, desc, amount, basis, height=44, starting_at=False, amount_text=None):
         nonlocal row
         ws.cell(row=row, column=2, value=name).font = f_line_name
         ws.cell(row=row, column=2).alignment = Alignment(vertical="top", wrap_text=True)
         ws.cell(row=row, column=3, value=desc).font = f_line_desc
         ws.cell(row=row, column=3).alignment = Alignment(vertical="top", wrap_text=True)
-        amount_label = f"{'from ' if starting_at else ''}${amount:,}"
+        if amount_text is not None:
+            amount_label = amount_text
+        else:
+            amount_label = f"{'from ' if starting_at else ''}${amount:,}"
         amount_cell = ws.cell(row=row, column=4)
         amount_cell.value = f"{amount_label}\n{basis}"
         amount_cell.font = f_amount
@@ -193,20 +196,50 @@ def main():
     )
 
     # Optional Add-Ons
-    section_header("Optional Add-Ons", "Available on request, quoted before execution")
+    section_header("Optional Add-Ons", "Pre-priced overlays, available on request")
     line_item(
-        "Maintenance — Pre-Deployment Activation Refresh",
-        "A pre-event touch-up pass: paint, hardware, finishes, and lighting recalibration. Quoted to scope at request.",
+        "Pre-Deployment Refresh",
+        "Touch-up pass: paint, hardware, finishes, lighting recalibration. Scaled to the asset's condition on intake.",
         2500,
         "per instance",
         starting_at=True,
     )
     line_item(
-        "Refab — Pre-Deployment Activation Rebrand",
-        "Graphics, wraps, or finish refresh aligned with a new campaign or partnership. Quoted to scope at request.",
+        "Pre-Deployment Rebrand",
+        "Graphics, wraps, or finish refresh aligned with a new campaign or partnership. Designed at the front end.",
         7500,
         "per instance",
         starting_at=True,
+    )
+    line_item(
+        "On-Site Show-Day Coverage",
+        "AGV producer or specialized tech on the ground during show days — refresh, repair, or in-window punch-list response.",
+        850,
+        "per day",
+        starting_at=True,
+    )
+
+    # Change Orders — commercial mechanics
+    section_header("Change Orders", "Commercial mechanics — bundle savings, pass-through, overflow storage")
+    line_item(
+        "Calendar Bundle Discount",
+        "4+ events committed inside a single 12-month window unlock 6–10% off per-activation logistics. Stacks on the rate card.",
+        0,
+        "stacks on rate card",
+        amount_text="6–10%",
+    )
+    line_item(
+        "Travel Pass-Through (Above Cap)",
+        "Travel or lodging beyond the per-activation Travel & Lodging line cap bills at cost with receipts on written authorization.",
+        0,
+        "with receipts",
+        amount_text="At cost",
+    )
+    line_item(
+        "Additional Storage (Overflow Pallets)",
+        "Storage beyond the standard footprint — overflow pallets, additional environmental control — bills monthly per pallet.",
+        400,
+        "per pallet / month",
     )
 
     row += 1
@@ -346,7 +379,7 @@ def main():
     # Footer
     ws.merge_cells(start_row=row, start_column=2, end_row=row, end_column=4)
     cell = ws.cell(row=row, column=2, value=(
-        "AGV Miami, LLC  ·  julian@agvmiami.com  ·  This invoice is issued in connection with proposal "
+        "AGV Miami, LLC  ·  jclarkson@agvmiami.com  ·  This invoice is issued in connection with proposal "
         "CBH-ABR-2026 V2.1 and incorporates by reference the executed Master Services Agreement between AGV Miami, LLC and Cornbread Hemp."
     ))
     cell.font = f_footer

@@ -223,6 +223,7 @@ function ProjectOverview() {
             <Detail label="Lighting" value={`${fmtMoney(4500)} one-time`} />
             <Detail label="Refresh" value={`from ${fmtMoney(2500)}`} />
             <Detail label="Rebrand" value={`from ${fmtMoney(7500)}`} />
+            <Detail label="On-Site Coverage" value={`from ${fmtMoney(850)}`} />
           </dl>
         </div>
       </div>
@@ -620,9 +621,9 @@ function ChangeOrders() {
   return (
     <section className="cbh-section">
       <SectionHeader
-        eyebrow="Optional Scope"
-        title="Available Change Orders."
-        sub="Scope outside the modular rate card — issued individually or stacked into a single activation SOW. Each item is priced to scope before execution."
+        eyebrow="Commercial Mechanics"
+        title="Change Orders."
+        sub="The commercial levers that shape an engagement once it's underway — bundle savings, travel above the per-activation cap, and overflow storage. Pre-priced overlays (Refresh, Rebrand, On-Site Coverage) live in the Pricing module above."
       />
       <div className="cbh-grid-2" style={{ marginTop: 24 }}>
         {CBH_CHANGE_ORDERS.map((c) => (
@@ -646,7 +647,11 @@ function ChangeOrders() {
 function Exclusions() {
   return (
     <section className="cbh-section">
-      <SectionHeader eyebrow="Scope Boundaries" title="Outside This Engagement." />
+      <SectionHeader
+        eyebrow="Scope Boundaries"
+        title="Outside This Engagement."
+        sub="Anything below sits outside this engagement — Cornbread-direct or quoted as a separate scope. Bring it back as a written change order if the moment calls for it."
+      />
       <ul className="cbh-exclusions">
         {CBH_EXCLUSIONS.map((e) => (
           <li key={e.term}>

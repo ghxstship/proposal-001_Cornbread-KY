@@ -27,7 +27,7 @@ export const CBH_DOC = {
   producerLong: "AGV Miami, LLC",
   contactClient: "Jess Gago",
   contactClientTitle: "Brand Activations Manager, Cornbread Hemp",
-  contactProducer: "julian@agvmiami.com",
+  contactProducer: "jclarkson@agvmiami.com",
   venue: "RiverStage · Big Four Station Park",
   city: "Jeffersonville, IN",
   docNumber: "AGORA-CBH-001",
@@ -155,19 +155,28 @@ export const CBH_PRICING_GROUPS: PricingGroup[] = [
     lines: [
       {
         num: 7,
-        name: "Maintenance — Pre-Deployment Activation Refresh",
+        name: "Pre-Deployment Refresh",
         description:
-          "A pre-event touch-up pass: paint, hardware, finishes, and lighting recalibration. Quoted to scope at request, scaled to the condition of the asset on intake.",
+          "A pre-event touch-up pass: paint, hardware, finishes, and lighting recalibration. Scaled to the condition of the asset on intake.",
         price: 2500,
         basis: "per instance",
         startingAt: true,
       },
       {
         num: 8,
-        name: "Refab — Pre-Deployment Activation Rebrand",
+        name: "Pre-Deployment Rebrand",
         description:
-          "Graphics, wraps, or finish refresh aligned with a new campaign or partnership. Quoted to scope at request — designed at the front end so the rebrand lands clean on the activation it travels to.",
+          "Graphics, wraps, or finish refresh aligned with a new campaign or partnership. Designed at the front end so the rebrand lands clean on the activation it travels to.",
         price: 7500,
+        basis: "per instance",
+        startingAt: true,
+      },
+      {
+        num: 9,
+        name: "On-Site Show-Day Coverage",
+        description:
+          "AGV producer or specialized tech on the ground during show days — refresh, repair, or in-window punch-list response. Sized to the run.",
+        price: 850,
         basis: "per instance",
         startingAt: true,
       },
@@ -536,28 +545,20 @@ export const CBH_WORKBACK: { phase: string; milestone: string; date: string }[] 
 
 export const CBH_EXCLUSIONS = [
   {
-    term: "On-Site Show-Day Coverage",
-    body: "AGV Miami's scope ends at the build-day walk-through and resumes at strike. On-site coverage during show days is not included; remote support line is staffed during venue hours for any venue or vendor punch-list items. On-site coverage is available as a written change order.",
+    term: "Structural & Engineering Work",
+    body: "Fabrication, structural rework, engineering documentation, PE stamps, and load calculations against the existing build sit outside this engagement and quote as a separate scope.",
   },
   {
-    term: "Structural & Engineering Changes",
-    body: "Modifications to the existing Cornbread-owned activation — fabrication, structural rework, engineering documentation, PE stamps, load calculations — are outside this engagement. AGV Miami is happy to scope a separate engagement for structural work on request.",
-  },
-  {
-    term: "Creative Refresh & Content Production",
-    body: "Graphics rewrap, scenic refresh, photo / video capture, and content production are not included in the per-activation rate. Pre-Deployment Refresh and Pre-Deployment Rebrand are available as written change orders quoted to scope.",
+    term: "Content Production",
+    body: "Creative concept development, photography, video, and social-media content are Cornbread-direct or quoted as a separate engagement. AGV Miami fabricates and prints to creative supplied by Cornbread.",
   },
   {
     term: "Talent, Programming & Hospitality",
-    body: "Brand ambassadors, on-site staffing, hospitality F&B, sampling product, and any activation programming are Cornbread-direct. AGV Miami's scope is the deployment lifecycle — pickup through strike — not the show itself.",
+    body: "Brand ambassadors, hospitality F&B, sampling product, and activation programming are Cornbread-direct. AGV Miami runs the deployment lifecycle — pickup through strike — not the show itself.",
   },
   {
     term: "Venue Fees & Permits",
     body: "Venue access fees, fire-marshal application fees, plaza power-use surcharges, and any venue-required deposits are Cornbread-direct or pass-through at cost on written authorization.",
-  },
-  {
-    term: "Travel & Per-Diem (Cap on Pass-Through)",
-    body: "Travel and lodging for the AGV crew are itemized at cost on the published rate card and capped inside the per-activation Travel & Lodging line. Anything that exceeds the cap is quoted as a single Travel Pass-Through change order before booking.",
   },
 ];
 
@@ -594,35 +595,22 @@ export const CBH_TERMS = [
   },
 ];
 
+// Commercial mechanics only — pre-priced overlay items live in
+// CBH_PRICING_GROUPS / Optional Add-Ons (Refresh, Rebrand, On-Site Coverage).
 export const CBH_CHANGE_ORDERS = [
   {
-    name: "On-Site Show-Day Coverage",
-    body: "AGV producer or specialized tech on the ground during show days — refresh, repair, or in-window punch-list response. Quoted per-day at the published Producer / PM or Specialized Crew day rate.",
-    price: "From $850 / day",
-  },
-  {
-    name: "Pre-Deployment Refresh",
-    body: "A pre-event touch-up pass on paint, hardware, finishes, and lighting calibration. Scaled to the asset's condition on intake. Scheduled into the pre-deployment window so it lands clean on the truck.",
-    price: "From $2,500 / instance",
-  },
-  {
-    name: "Pre-Deployment Rebrand",
-    body: "Graphics, wraps, or finish refresh aligned with a new campaign or partnership. Designed at the front end and prepped in shop before the build truck rolls.",
-    price: "From $7,500 / instance",
-  },
-  {
     name: "Calendar Bundle Discount",
-    body: "When 4+ events are committed inside a single 12-month window, integrated truck routing and storage continuity reduce per-activation logistics by 6–10%. Stacks on the published rate card.",
+    body: "Lock 4+ events inside a single 12-month window and integrated truck routing plus storage continuity reduce per-activation logistics by 6–10%. Stacks on the published rate card.",
     price: "6–10% per activation",
   },
   {
     name: "Travel Pass-Through (Above Cap)",
-    body: "If non-default travel or lodging is required beyond the per-activation line cap, billed at cost with receipts as a single Travel Pass-Through change order on written authorization.",
+    body: "If a route demands travel or lodging beyond the per-activation Travel & Lodging line cap, the overage bills at cost with receipts on written authorization.",
     price: "At cost",
   },
   {
-    name: "Additional Storage (Beyond Standard Footprint)",
-    body: "Storage beyond the activation's standard footprint — overflow pallets, additional environmental control — billed monthly per pallet.",
+    name: "Additional Storage (Overflow Pallets)",
+    body: "Storage beyond the activation's standard footprint — overflow pallets, additional environmental control — bills monthly per pallet alongside the standard hold.",
     price: "$400 / pallet / month",
   },
 ];
